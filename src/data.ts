@@ -88,5 +88,5 @@ export const site = {
   location: "Based in India ·" ,
   linkedin: "linkedin.com/in/snehehe",
   github: "https://github.com/iamsnehaa",
-  resume: "./resume.pdf"
+  resume: "/resume.pdf"
 }
