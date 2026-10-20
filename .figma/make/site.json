@@ -1,0 +1,10 @@
+{
+  "description": "A visually distinctive, responsive portfolio showcasing a UI/UX designer's creative and technical skills with interactive mode toggles and detailed case studies.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
