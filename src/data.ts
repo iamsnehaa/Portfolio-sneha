@@ -86,7 +86,7 @@ export const projects: Project[] = [
 export const site = {
   email: "snehasharma08012003@gmail.com",
   location: "Based in India ·" ,
-  linkedin: "linkedin.com/in/snehehe",
+  linkedin: "https://www.linkedin.com/in/snehehe/",
   github: "https://github.com/iamsnehaa",
   resume: "/resume.pdf"
 }
