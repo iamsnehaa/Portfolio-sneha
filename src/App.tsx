@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { type Mode, type Project, projects, site } from "./data"
-import aboutPortrait from "./imports/IMG_2898-1.jpeg"
-import heroPortrait from "./imports/IMG_6127.jpeg"
+import aboutPortrait from "./imports/about.jpeg"
+import heroPortrait from "./imports/me.jpeg"
 import LocalTime from "./LocalTime"
 
 function Arrow({ down = false }: { down?: boolean }) {
