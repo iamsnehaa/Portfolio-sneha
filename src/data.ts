@@ -11,11 +11,12 @@ export type Project = {
   tone: string
   design: string
   development: string
+  url: string
 }
 
 export const projects: Project[] = [
   {
-    slug: "optm",
+    slug: "bloganiac",
     number: "01",
     name: "Bloganiac",
     category: "Product Design / UI·UX",
@@ -27,6 +28,7 @@ export const projects: Project[] = [
     tone: "lavender",
     design: " accessible UI, prototyping",
     development: "Responsive components, data visualisation",
+    url: "https://bloganiac.vercel.app/",
   },
   {
     slug: "organza",
@@ -41,6 +43,7 @@ export const projects: Project[] = [
     tone: "sand",
     design: "Art direction, commerce UX, typography",
     development: "React storefront, responsive image system",
+    url: "organza-alpha.vercel.app"
   },
   {
     slug: "sign-it-off",
@@ -54,6 +57,7 @@ export const projects: Project[] = [
     tone: "ink",
     design: "Trust patterns, explainable results, flows",
     development: "Model states, API flows, error handling",
+    url: "mini-projects-puce.vercel.app/"
   },
   {
     slug: "far-from-home",
@@ -67,6 +71,7 @@ export const projects: Project[] = [
     tone: "sage",
     design: "Field research framework, service design",
     development: "Marketplace architecture, maps, mobile UI",
+    url: "farfromhome-rho.vercel.app" 
   },
   {
     slug: "experiments",
@@ -80,6 +85,7 @@ export const projects: Project[] = [
     tone: "coral",
     design: "Type studies, motion sketches, compositions",
     development: "CSS experiments, canvas, interaction studies",
+    url: "dukaan-self.vercel.app/"
   },
 ]
 

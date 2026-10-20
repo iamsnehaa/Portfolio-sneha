@@ -114,7 +114,7 @@ function Hero({ mode }: { mode: Mode }) {
             <small>Currently exploring</small>
             <b>
               {mode === "designer"
-                ? "Soft systems & human moments"
+                ? "Somewhere between Development & design"
                 : "Interfaces with expressive code"}
             </b>
           </div>
@@ -130,8 +130,10 @@ function Hero({ mode }: { mode: Mode }) {
 }
 function Visual({ p, mode }: { p: Project ;mode: Mode }) {
   return (
+    
     <div className={`visual ${p.tone} ${mode}`} aria-hidden="true">
-      {p.slug === "optm" && (
+      
+      {p.slug === "bloganiac" && (
         <div className="mock health">
           <aside>
             <b>O</b>
@@ -259,7 +261,8 @@ function Visual({ p, mode }: { p: Project ;mode: Mode }) {
     </div>
   )
 }
-function Work({ mode, open }: { mode: Mode ;open: (p: Project) => void }) {
+
+function Work({ mode, open }: { mode: Mode; open: (p: Project) => void }) {
   return (
     <section className="section shell" id="work">
       <Heading
@@ -274,33 +277,62 @@ function Work({ mode, open }: { mode: Mode ;open: (p: Project) => void }) {
         }
         copy="A few things I’ve designed, built, and thought deeply about."
       />
+
       <div className="project-grid">
-        {projects.map((p) => (
-          <article className="project" key={p.slug}>
-            <button
-              type="button"
-              onClick={() => open(p)}
-              aria-label={`View ${p.name} case study`}
-            >
-              <Visual p={p} mode={mode} />
-              <div className="project-title">
-                <span className="mono">{p.number}</span>
-                <h3>{p.name}</h3>
-                <i>
-                  <Arrow />
-                </i>
-              </div>
-              <p className="category">
-                {p.listingCategory ?? `${p.category} · ${p.year}`}
-              </p>
-              <p className="desc">{p.description}</p>
-              <span className="mode-note">
-                {mode === "designer" ? p.design : p.development}
-              </span>
-            </button>
-          </article>
-        ))}
+        {projects.map((p) => {
+          const isDesigner = mode === "designer"
+
+          const handleProjectClick = () => {
+            if (isDesigner) {
+              open(p)
+            } else if (p.url) {
+              window.open(p.url, "_blank", "noopener,noreferrer")
+            }
+          }
+
+          return (
+            <article className="project" key={p.slug}>
+              <button
+                type="button"
+                onClick={handleProjectClick}
+                aria-label={
+                  isDesigner
+                    ? `View ${p.name} case study`
+                    : p.url
+                      ? `Visit ${p.name} live project`
+                      : `${p.name} is not deployed yet`
+                }
+                disabled={!isDesigner && !p.url}
+              >
+                <Visual p={p} mode={mode} />
+
+                <div className="project-title">
+                  <span className="mono">{p.number}</span>
+                  <h3>{p.name}</h3>
+                  <i>
+                    <Arrow />
+                  </i>
+                </div>
+
+                <p className="category">
+                  {p.listingCategory ?? `${p.category} · ${p.year}`}
+                </p>
+
+                <p className="desc">{p.description}</p>
+
+                <span className="mode-note">
+                  {isDesigner
+                    ? "Explore case study ↗"
+                    : p.url
+                      ? "View live project ↗"
+                      : "Coming soon"}
+                </span>
+              </button>
+            </article>
+          )
+        })}
       </div>
+
       <p className="disclaimer">
         Project narratives and outcomes are editable, illustrative placeholders
         until verified case-study evidence is added.
@@ -308,6 +340,7 @@ function Work({ mode, open }: { mode: Mode ;open: (p: Project) => void }) {
     </section>
   )
 }
+
 function Heading({
   index,
   label,
